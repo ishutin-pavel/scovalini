@@ -1,0 +1,85 @@
+.home-slider {}
+.home-slide {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.home-slide_1 { background-image: url(images/banner_1.jpg); }
+.home-slide_2 { background-image: url(images/banner_2.jpg); }
+.home-slide__title {
+  font-size: 52px;
+  font-weight: 600;
+  color: #603913;
+  line-height: 1;
+}
+.home-slide__desc {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #252525;
+}
+
+.home-slide__bnt {
+  margin-top: 30px;
+  display: inline-block;
+  padding: 20px 37px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #603913;
+  border: 2px solid #603913;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+  &:hover {
+    background-color: #c69c6d;
+    border-color: #c69c6d;
+    color: #fff;
+  }
+}
+
+.home-slide_1 {
+  padding-top: 105px;
+}
+
+.home-slide_2 {
+  padding-top: 138px;
+  padding-left: 95px;
+  .home-slide__title { color: #c69c6d; }
+  .home-slide__desc { color: #fff; }
+  .home-slide__bnt {
+    color: #fff;
+    border-color: #fff;
+    &:hover {border-color: #c69c6d; }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .home-slide_1 { background-position: 35% center; }
+  .home-slide_2 { background-position: 60% center; }
+  .home-slide__title { font-size: 48px; }
+  .home-slide__bnt { padding: 10px 20px; }
+}
+
+@media screen and (max-width: 768px) {
+  .home-slide { padding-left: 15px; }
+  .home-slide_1 {
+    background-position: 23% center;
+    .home-slide__title { color: #c69c6d; }
+    .home-slide__desc { color: #fff; }
+    .home-slide__bnt {
+      color: #fff;
+      border-color: #fff;
+      &:hover {border-color: #c69c6d; }
+    }
+  }
+  .home-slide_2 { background-position: 74% center; }
+  .home-slide__title { font-size: 28px; }
+  .home-slide__bnt { font-size: 14px; padding: 10px 20px; }
+}
+
+
+@media screen and (max-width: 480px) {
+  .home-slide { padding: 15px; }
+  .home-slide_1 { background-position: 17% center; }
+  .home-slide_2 { background-position: 82% center; }
+  .home-slide__bnt { font-size: 14px; padding: 10px 20px; }
+}

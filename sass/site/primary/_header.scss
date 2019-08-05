@@ -1,0 +1,68 @@
+.site-header .container {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  background: url(images/grain_1.png) 280px 50px no-repeat,
+              url(images/grain_2.png) 480px 20px no-repeat,
+              url(images/grain_3.png) 840px 20px no-repeat;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-lang {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.header-contacts {
+  color: #c69c6d;
+  font-weight: 300;
+  .header-contacts__phone {
+    img { display: inline-block; margin-right: 8px; }
+  }
+  .header-contacts__address {
+    img { display: inline-block; margin-right: 8px; }
+  }
+}
+
+.header-support {
+  cursor: pointer;
+  position: relative;
+}
+.header-support__box {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 23px;
+  width: 215px;
+  padding: 15px;
+  border-top: 2px solid #c69c6d;
+  background-color: #fff;
+  z-index: 99;
+  color: #333333;
+  font-size: 12px;
+  text-transform: uppercase;
+  a {
+    color: #c69c6d;
+  }
+}
+
+.header-support:hover .header-support__box { display: block; }
+
+@media(max-width: 1200px) {
+  .site-header .container {
+    background: url(images/grain_1.png) 30% 50px no-repeat,
+                url(images/grain_2.png) 40% 20px no-repeat,
+                url(images/grain_3.png) 70% 20px no-repeat;
+  }
+}
+
+
+@media(max-width: 782px) {
+  .site-header .container {
+    flex-direction: column;
+  }
+  .site-branding { order: -1; text-align: center;}
+  .header-contacts { margin:10px auto; text-align: center; }
+  .header-lang { max-width: 170px; margin: 10px auto; }
+}

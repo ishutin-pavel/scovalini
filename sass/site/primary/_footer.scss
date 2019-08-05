@@ -1,0 +1,67 @@
+.site-footer {
+  background-image: url(images/footer.jpg);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
+.footer-bottom {
+  display: flex;
+  margin-top: 90px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  padding: 10px 20px 0px 20px;
+  background-color: rgba(#dccab3, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .footer-bottom {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.fcontacts {  }
+
+.fcontacts__title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #e8ddd0;
+  text-transform: uppercase;
+ }
+.fcontacts__term {
+  margin-bottom: 5px;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.85;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #c69c6d;
+}
+.fcontacts__def {
+  font-size: 14px;
+}
+
+#yandex-map {
+  border: 7px solid #fff;
+  width: 100%;
+  height: 355px;
+}
+
+.sep {
+  height: 1px;
+  width: 30px;
+  background-color: #c69c6d;
+}
+
+
+.fcontacts .sep {
+  margin-top: 17px;
+  margin-bottom: 45px;
+}
+
+.f-form {
+  input[type="text"] {
+    background-color: transparent !important;
+  }
+}

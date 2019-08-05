@@ -1,0 +1,27 @@
+.sc_button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	padding: 14px 50px;
+	color: $color__primary;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1;
+	text-transform: uppercase;
+	background-color: #fff;
+	border: none;
+	cursor: pointer;
+	text-decoration: none;
+	transition: .2s;
+	&:hover {
+		color: #fff;
+		background-color: $color__primary;
+	}
+	&:active,
+	&:focus {
+		color: #fff;
+		background-color: $color__primary;
+	}
+	&:visited {color: $color__primary;}
+}
