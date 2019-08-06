@@ -1,4 +1,7 @@
 <?php
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 /**
  * The template for displaying archive pages
  *
@@ -22,13 +25,6 @@ get_header();
 
       <?php if ( have_posts() ) : ?>
 
-        <header class="page-header">
-          <?php
-          the_archive_title( '<h1 class="page-title">', '</h1>' );
-          the_archive_description( '<div class="archive-description">', '</div>' );
-          ?>
-        </header><!-- .page-header -->
-
         <?php
         /* Start the Loop */
         while ( have_posts() ) :
@@ -39,11 +35,27 @@ get_header();
            * If you want to override this in a child theme, then include a file
            * called content-___.php (where ___ is the Post Type name) and that will be used instead.
            */
-          get_template_part( 'template-parts/content', get_post_type() );
+          if( is_category( array(25,27,29,31,33) ) ) {
+            get_template_part( 'template-parts/content', 'product' );
+          } else {
+            get_template_part( 'template-parts/content', get_post_type() );
+          }
+
 
         endwhile;
 
-        the_posts_navigation();
+        //the_posts_navigation();
+        //Загрузчить ещё
+         if (  $wp_query->max_num_pages > 1 ) : ?>
+          <script>
+          var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
+          var true_posts = '<?php echo serialize($wp_query->query_vars); ?>';
+          var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
+          var max_pages = '<?php echo $wp_query->max_num_pages; ?>';
+          </script>
+          <div id="true_loadmore">Загрузить ещё</div>
+        <?php endif;
+        //end
 
       else :
 

@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('sc_post'); ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -22,17 +22,18 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				scovalini_posted_on();
 				scovalini_posted_by();
+				scovalini_posted_on();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php scovalini_post_thumbnail(); ?>
-
 	<div class="entry-content">
 		<?php
+
+		scovalini_post_thumbnail();
+
 		the_content( sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
@@ -53,7 +54,4 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php scovalini_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

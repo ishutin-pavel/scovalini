@@ -101,6 +101,7 @@ get_header();
 
       </div><!-- .container -->
 
+<?php require 'blocks/about/about.php'; ?>
 
     <?php
     //Вывод содержимого

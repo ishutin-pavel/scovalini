@@ -2,6 +2,7 @@
   background-image: url(images/footer.jpg);
   background-position: bottom center;
   background-repeat: no-repeat;
+  padding-top: 90px;
 }
 
 .footer-bottom {
@@ -60,8 +61,4 @@
   margin-bottom: 45px;
 }
 
-.f-form {
-  input[type="text"] {
-    background-color: transparent !important;
-  }
-}
+.f-form {}

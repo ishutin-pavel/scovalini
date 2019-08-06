@@ -1,0 +1,69 @@
+.home-about {
+  background-color: #e8ddd0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home-about__title {
+  margin-top: 150px;
+  color: #603913;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.home-about p {
+  font-size: 14px;
+  color: #464646;
+}
+
+.ha__item {
+  width: 50%;
+  min-height: 300px;
+}
+
+.ha__item_1 {
+  background-position: bottom right;
+  height: 523px;
+  background-image: url(images/home-about-1.jpg);
+}
+
+.ha__item_2 {
+  max-width: 555px;
+  padding-left: 85px;
+}
+
+.ha__item_3 {
+  max-width: 585px;
+  margin-left: auto;
+  padding: 50px 75px 50px 0;
+}
+
+.ha__item_4 {
+  background-position: top left;
+  height: 345px;
+  background-image: url(images/home-about-2.jpg);
+}
+
+@media(max-width: 1200px) {
+  .ha__item { padding: 15px; }
+}
+
+@media(max-width: 992px) {
+  .home-about__title { margin-top: 100px }
+  .ha__item { margin:0; padding: 15px; }
+}
+
+@media(max-width: 768px) {
+  .home-about { flex-direction: column; }
+  .ha__item { margin:0; padding: 15px; width: 100%; max-width: 100%; }
+  .home-about__title { margin-top: 20px; }
+}
+
+
+.about-page {
+  .advantages { margin-bottom: 0; }
+  .home-about__title { margin-top: 50px; }
+  .ha__item_1 { height: 424px; background-image: url(images/home-about-3.jpg); }
+  .ha__item_4 { background-image: url(images/home-about-4.jpg); }
+  .wpb_content_element { margin-bottom: 0 !important; }
+}

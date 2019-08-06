@@ -26,8 +26,8 @@ if ( ! function_exists( 'scovalini_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'scovalini' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			esc_html_x( ' | %s', 'post date', 'scovalini' ),
+			'<span>' . $time_string . '</span>'
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
@@ -42,8 +42,8 @@ if ( ! function_exists( 'scovalini_posted_by' ) ) :
 	function scovalini_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'scovalini' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			esc_html_x( 'Posted by %s', 'post author', 'scovalini' ),
+			'<span class="author vcard">' . esc_html( get_the_author() ) . '</span>'
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.

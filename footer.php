@@ -19,13 +19,13 @@
 
       <div class="fcontacts">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-md-6">
 
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-md-6">
                 <div id="yandex-map"></div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-md-6">
                 <div class="sep"></div>
                 <div class="fcontacts__title"><?php pll_e( 'footer_contacts_title' ); ?></div>
                 <div class="fcontacts__term"><?php pll_e( 'footer_contacts_address' ); ?></div>
@@ -38,15 +38,30 @@
             </div>
 
           </div><!-- .col -->
-          <div class="col-sm-6">
+          <div class="col-md-6">
             <div class="fcontacts__title" style="margin-top: 62px;"><?php pll_e( 'f_title' ); ?></div>
             <p><?php pll_e( 'f_desc' ); ?></p>
 
-              <form id="f-form" class="form" action="javascript();">
-                  <input type="text" name="name" placeholder="<?php pll_e( 'f_name' ); ?>">
-                  <input type="text" name="surname" placeholder="<?php pll_e( 'f_surname' ); ?>">
-                  <textarea name="comment" placeholder="<?php pll_e( 'f_text' ); ?>"></textarea>
-                  <input type="submit" value="<?php pll_e( 'f_btn' ); ?>">
+              <form id="f-form" class="f-form form" action="javascript();">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="cool-input">
+                        <input required class="cool-input__input" type="text" name="name" >
+                        <span class="cool-input__placeholder"><?php pll_e( 'f_name' ); ?></span>
+                    </div><!-- .col -->
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cool-input">
+                      <input required class="cool-input__input" type="text" name="surname" >
+                        <span class="cool-input__placeholder"><?php pll_e( 'f_surname' ); ?></span>
+                    </div>
+                  </div><!-- .col -->
+                </div><!-- .row -->
+                <div class="cool-input">
+                  <textarea required class="cool-input__input" name="comment"></textarea>
+                    <span class="cool-input__placeholder"><?php pll_e( 'f_text' ); ?></span>
+                </div>
+                <input type="submit" value="<?php pll_e( 'f_btn' ); ?>">
                 <div class="message"></div>
               </form>
 

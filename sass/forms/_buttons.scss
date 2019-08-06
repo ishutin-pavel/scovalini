@@ -1,5 +1,5 @@
 .sc_button,
-button,
+button:not(.slick-arrow),
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {

@@ -131,6 +131,8 @@ function scovalini_scripts() {
 
   wp_enqueue_script( 'api-maps-yandex', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array('jquery'), '', true );
 
+  wp_enqueue_script( 'loadmore-js', get_template_directory_uri() . '/js/loadmore.js', array('jquery'), '0.0.1', true );
+
   wp_enqueue_script( 'scovalini-js', get_template_directory_uri() . '/js/main.js', array('jquery'), '0.0.1', true );
 
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -181,6 +183,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 if ( function_exists('pll_the_languages') ) {
 
   function my_pll() {
+    $pll_links = "";
     $translations = pll_the_languages( array( 'raw' => 1 ) );
     //print_r($translations);
     echo '<div class="language">';
@@ -223,6 +226,12 @@ if (function_exists('pll_register_string')) {
     pll_register_string( 'Заголовок блока с товарами', 'home_products_title' , 'Home', false );
     pll_register_string( 'Кнопка подробнее', 'more_btn' , 'Home', false );
 
+    //Преимущества
+    pll_register_string( 'Преимущество 1', 'home_advantage_1' , 'Преимущества на главной', false );
+    pll_register_string( 'Преимущество 2', 'home_advantage_2' , 'Преимущества на главной', false );
+    pll_register_string( 'Преимущество 3', 'home_advantage_3' , 'Преимущества на главной', false );
+    pll_register_string( 'Преимущество 4', 'home_advantage_4' , 'Преимущества на главной', false );
+
     //Footer Contacts
     pll_register_string( 'Заголовок карты', 'footer_contacts_title' , 'Footer Contacts', false );
     pll_register_string( 'Адрес - заголовок', 'footer_contacts_address' , 'Footer Contacts', false );
@@ -250,3 +259,28 @@ function my_breadcrumb_title_swapper($title, $type, $id)
     }
     return $title;
 }
+
+//Загрузить ещё
+function true_load_posts(){
+
+  $args = unserialize( stripslashes( $_POST['query'] ) );
+  $args['paged'] = $_POST['page'] + 1; // следующая страница
+  $args['post_status'] = 'publish';
+
+  // обычно лучше использовать WP_Query, но не здесь
+  query_posts( $args );
+  // если посты есть
+  if( have_posts() ) :
+
+    // запускаем цикл
+    while( have_posts() ): the_post();
+      WPBMap::addAllMappedShortcodes();
+      get_template_part( 'template-parts/content', 'product' );
+    endwhile;
+
+  endif;
+  die();
+}
+add_action('wp_ajax_loadmore', 'true_load_posts');
+add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
+add_filter('the_content', 'do_shortcode');

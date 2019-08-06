@@ -15,6 +15,12 @@ html {
   box-sizing: inherit;
 }
 
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
 .container {
   width: 100%;
   padding-right: 15px;

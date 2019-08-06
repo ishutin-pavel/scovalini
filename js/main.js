@@ -19,7 +19,8 @@ jQuery(document).ready(function() {
         {
           breakpoint: 1200,
           settings: {
-            slidesToShow: 2
+            slidesToShow: 2,
+            slidesToScroll: 2
           }
         },
         {
@@ -33,6 +34,31 @@ jQuery(document).ready(function() {
         // settings: "unslick"
         // instead of a settings object
       ]
+  });
+
+  jQuery('.cool-input__input').on('input', function(){
+      var $this = jQuery(this);
+      if ($this.val() == '') {
+          $this.removeClass('cool-input__input_filled');
+      } else {
+          $this.addClass('cool-input__input_filled');
+      }
+  });
+
+
+  //Отправляем форму
+  jQuery(".f-form").submit(function() {
+    var form = jQuery(this);
+    var message = jQuery(this).find('.message');
+      message.html('<span style="color:green;">Отправляем...</span>');
+    //yaCounter46416018.reachGoal('FORDER'); // изменить номер счётчика иначе ошибка !!!
+      jQuery.ajax({
+        type: "POST",
+        url: "/wp-content/themes/scovalini/mail.php",
+        data: form.serialize(),
+        success: function ( serverAnswer ) { message.html(serverAnswer); }
+      });
+  return false;
   });
 
 });//ready

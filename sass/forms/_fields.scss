@@ -15,11 +15,8 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
   outline: none;
-  color: $color__text-input;
+  color: $color__primary;
   background-color: transparent !important;
-  border-radius: 3px;
-  padding: 3px;
-
   &:focus {
     color: $color__text-input-focus;
   }
@@ -31,4 +28,51 @@ select {
 
 textarea {
   width: 100%;
+}
+
+
+.cool-input {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.cool-input__input {
+    box-sizing: border-box;
+    position: relative;
+    border: none;
+    border-bottom: 1px dashed #969696;
+    background: none;
+    color: $color__primary;
+    width: 100%;
+    padding: 1.2em 1em 0.4em 0 !important;
+    font-size: 1em;
+    z-index: 2;
+}
+.cool-input__input:focus {
+    outline: none;
+    border-bottom: 1px solid $color__primary;
+}
+
+.cool-input__placeholder {
+    box-sizing: border-box;
+    border: none;
+    background: none;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left:0;
+    top: 50%;
+    line-height: 1em;
+    margin-top: -0.5em;
+    transition: all 0.2s ease;
+}
+
+.cool-input__input_filled + .cool-input__placeholder,
+.cool-input__input:focus + .cool-input__placeholder {
+  color: $color__primary;
+  font-size: 10px;
+  top: 0;
+  margin-top: 0.1em;
 }
